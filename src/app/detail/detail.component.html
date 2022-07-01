@@ -1,1 +1,13 @@
-<p>detail works!</p>
+<button routerLink="/home">al home</button>
+
+<div>
+  <div *ngFor="let coinId of coinById | async">
+    <img src="{{ coinId?.image.small }}" alt="{{ coinId?.name }}" />
+
+    <p> id:{{ coinId?.id }}</p>
+    <p>Name:{{ coinId?.name }}</p>
+    <p>Price:{{ coinId?.price }}</p>
+    <p>Rank:{{ coinId?.coingecko_rank }}</p>
+    <p>Score:{{ coinId?.coingecko_score }}</p>
+  </div>
+</div>

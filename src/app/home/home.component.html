@@ -1,1 +1,8 @@
-<p>home works!</p>
+
+  <div>
+      <button routerLink="/detail">al detalle</button>
+    <div *ngFor="let listCoins of allCoins | async">
+      <app-card [card]="listCoins"></app-card>
+      
+    </div>
+  </div>

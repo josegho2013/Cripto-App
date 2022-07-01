@@ -1,0 +1,15 @@
+.card {
+    margin: 2rem;
+  }
+  .card-body {
+    margin-top: 0.2rem;
+    background: #87a3b7;
+    border-radius: 0rem 0rem 1rem 1rem;
+    border: solid 0.1rem #435560;
+  }
+  .card-title {
+    font-family: "Urbanist";
+    font-feature-settings: "smcp";
+    font-variant: small-caps;
+    margin: 12px;
+  }

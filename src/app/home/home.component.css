@@ -1,0 +1,6 @@
+ * {
+  display: grid;
+  grid: auto-flow dense / 1fr 1fr 1fr;
+  justify-content: space-around;
+  text-align: center;
+}
