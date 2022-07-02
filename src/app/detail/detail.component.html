@@ -1,13 +1,53 @@
-<button routerLink="/home">al home</button>
-
-<div>
-  <div *ngFor="let coinId of coinById | async">
-    <img src="{{ coinId?.image.small }}" alt="{{ coinId?.name }}" />
-
-    <p> id:{{ coinId?.id }}</p>
-    <p>Name:{{ coinId?.name }}</p>
-    <p>Price:{{ coinId?.price }}</p>
-    <p>Rank:{{ coinId?.coingecko_rank }}</p>
-    <p>Score:{{ coinId?.coingecko_score }}</p>
+<div class="test">
+  <div class="home">
+    <app-navbar></app-navbar>
   </div>
+  
+  <div class="detail">
+    <button routerLink="/home">Back home</button>
+    <div class="main">
+      <div class="info" *ngFor="let coinId of coinById | async">
+        <img src="{{ coinId?.image.small }}" alt="{{ coinId?.name }}" />
+    
+        <h1>Coin Name: {{ coinId?.name || "N/A" }}</h1>
+        <p>id: {{ coinId?.id || "N/A" }}</p>
+        
+        <hr/>
+        <p>Price: USD {{ coinId?.market_data.current_price.usd || "N/A" }}</p>
+        
+        <span>Rank: {{ coinId?.coingecko_rank || "N/A" }}</span>
+        <span> / </span>
+        <span>Score: {{ coinId?.coingecko_score || "N/A" }}</span>
+        
+        <h3>Description: {{coinId?.description.en || "N/A"}}</h3>
+
+        <span>More Info:</span>
+        <div *ngFor="let index of coinId?.links.homepage || coinId?.links.blockchain_site | keyvalue">
+          <a href={{index.value}} target="_blank"><b>{{ index.value }}</b></a>
+        </div>
+        <a href={{coinId?.tickers[0]?.trade_url}} target="_blank"><b>{{ coinId?.tickers[0]?.trade_url}}</b></a>
+
+        <hr/>
+        <div id="platform">
+          <span>Platform:</span>
+          <div *ngFor="let item of coinId?.platforms | keyvalue">
+            <b>{{ item.key || "N/A"  }}</b>
+          </div>
+        </div>
+      </div>
+      <div class="graphics">
+        <img src="https://www.gestionpasiva.com/wp-content/uploads/como-se-calcula-un-indice-bursatil.jpg" alt="graphic" />
+      </div>          
+    </div>
+
+
+    <!-- <div>
+      <canvas options="chartOptions" width="400" height="200"></canvas>
+    </div> -->
+  </div>
+
+  <app-footer></app-footer>
 </div>
+
+
+

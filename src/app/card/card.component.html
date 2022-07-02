@@ -1,10 +1,13 @@
 <div class="card">
-  
-    <div class="card-body">
-      <h2 class="card-title"> id:{{ card?.id }}</h2>
-      <h2 class="card-title">Name:{{ card?.name }}</h2>
-      <h2 class="card-title">Symbol:{{ card?.symbol }}</h2>
-      <button (click)="goToDetail(card?.id)">detalle</button>
+  <div class="card-body">
+    <div>
+      <h2 class="card-title">
+        Name: <span>{{ card?.name }}</span>
+      </h2>
+      <h4 class="card-title">
+        Coin Id: <span>{{ card?.id }}</span>
+      </h4>
     </div>
+    <button (click)="goToDetail(card?.id)">Detail</button>
   </div>
-  
+</div>

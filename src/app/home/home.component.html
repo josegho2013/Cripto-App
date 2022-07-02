@@ -1,8 +1,31 @@
-
-  <div>
-      <button routerLink="/detail">al detalle</button>
-    <div *ngFor="let listCoins of allCoins | async">
-      <app-card [card]="listCoins"></app-card>
-      
+<div class="test">
+  <div class="home">
+    <app-navbar></app-navbar>
+    <div class="search">
+      <input
+        type="text"
+        placeholder="Search coin by name..."
+        (keyup)="emitWordCount($event)"
+      />
     </div>
   </div>
+
+  <div *ngIf="allCoins | async as allCoins">
+    <mat-paginator
+      class="pag"
+      [length]="allCoins.length"
+      [pageSize]="20"
+      showFirstLastButtons
+      (page)="pageEvent = OnPageChange($event)"
+    >
+    </mat-paginator>
+  </div>
+
+  <div class="listHome">
+    <div *ngFor="let listCoins of coinsPaginate">
+      <app-card [card]="listCoins"></app-card>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>

@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.css'],
+  styleUrls: ['./detail.component.sass'],
 })
 export class DetailComponent implements OnInit {
   constructor(
@@ -15,11 +15,11 @@ export class DetailComponent implements OnInit {
   ) {}
 
   coinById: Observable<any> = EMPTY;
+  coinMarketById: Observable<any> = EMPTY;
 
   ngOnInit(): void {
     this.getCoinById();
   }
-  
 
   getCoinById() {
     const id = String(this.route.snapshot.paramMap.get('id'));

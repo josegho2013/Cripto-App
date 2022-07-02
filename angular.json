@@ -5,7 +5,11 @@
   "projects": {
     "BetterCripto": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "sass"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -18,12 +22,14 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "sass",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/custom-theme.scss",
+              "src/styles.sass"
             ],
             "scripts": []
           },
@@ -85,12 +91,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "sass",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.sass"
             ],
             "scripts": []
           }
@@ -99,6 +106,6 @@
     }
   },
   "cli": {
-    "analytics": "cbfcb27e-2a2c-4978-9f9f-2c9e7c53dc98"
+    "analytics": "f31f65b3-4e4f-47d0-9af3-b499164a5738"
   }
 }
